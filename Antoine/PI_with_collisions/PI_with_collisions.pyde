@@ -12,7 +12,8 @@ def setup():
     speed = 0
     masse2 = pow(100, nombres)
     block1 = Block(100,200,masse1,0)
-    block2 = Block(200,200,masse2,-1)
+    block2 = Block(300,200,masse2,-1)
+ 
 
 def draw():
     print(cpt.val)
@@ -33,6 +34,11 @@ def draw():
     block2.show()
     block2.update()
     block1.update()
+    
+    textSize(68);
+    fill(255, 204, 0)
+    textAlign(CENTER);
+    text(cpt.val, width/2, 500);
 
 
 class Compteur:
@@ -77,6 +83,7 @@ class Block:
   
 
   def show(self) :
+    rectMode(CENTER)
     fill(255, 204, 0)
     noStroke()
     rect(self.x, self.y, self.taille, self.taille);
