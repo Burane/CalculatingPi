@@ -1,4 +1,5 @@
-
+global vitesse
+vitesse = 1
 
 
 def setup():
@@ -6,8 +7,7 @@ def setup():
     size(1500, 700)
     global block1, block2, masse1, masse2, digits, speed, cpt
     cpt = Compteur(0)
-    print(cpt)
-    nombres = 3
+    nombres = 4
     masse1 = 100
     speed = 0
     masse2 = pow(100, nombres)
@@ -16,29 +16,29 @@ def setup():
  
 
 def draw():
-    print(cpt.val)
     background(51)
     
-    if (block1.collide(block2)):
-        v1 = block1.bounce(block2)
-        v2 = block2.bounce(block1)
-        block1.speed = v1
-        block2.speed = v2
-        cpt.incr()
+    for _ in range(vitesse):
+        if (block1.collide(block2)):
+            v1 = block1.bounce(block2)
+            v2 = block2.bounce(block1)
+            block1.speed = v1
+            block2.speed = v2
+            cpt.incr()
+            
+        if (block1.hitWall()):
+            block1.reverse()
+            cpt.incr()
         
-    if (block1.hitWall()):
-        block1.reverse()
-        cpt.incr()
-    
-    block1.show()
-    block2.show()
-    block2.update()
-    block1.update()
-    
-    textSize(68);
-    fill(255, 204, 0)
-    textAlign(CENTER);
-    text(cpt.val, width/2, 500);
+        block1.show()
+        block2.show()
+        block2.update()
+        block1.update()
+        
+        textSize(68);
+        fill(255, 204, 0)
+        textAlign(CENTER);
+        text(cpt.val, width/2, 500);
 
 
 class Compteur:
