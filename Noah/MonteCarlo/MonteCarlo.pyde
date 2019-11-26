@@ -1,18 +1,31 @@
 r = 200
+inside = 0
+outside = 0
+vitesse = 50000
 
 def setup() :
-    size(201, 201)
-    rectMode(CENTER)
-    rect(100, 100, 200, 200)
-    ellipse(100, 100, r, r)
+    size(r*2+1, r*2+1)
+    rectMode(CORNER)
+    rect(0, 0, r*2, r*2)
+    ellipseMode(CORNER)
+    ellipse(0, 0, r*2, r*2)
 
 def draw() :
-    strokeWeight(2)
-    x = random(-r, r)
-    y = random(-r, r)
-    d = sqrt(x*x + y*y)
-    if(d < r):
-        stroke(0, 255, 0)
-    else :
-        stroke(255, 0, 0)
-    point(x, y)
+    strokeWeight(0.15)
+    translate(width/2, height/2)
+    pie = 0
+    for _ in range (vitesse) :
+        x = random(-r, r)
+        y = random(-r, r)
+        d = x*x + y*y
+        if(d < r*r):
+            global inside
+            inside = inside + 1
+            stroke(0, 255, 0)
+        else :
+            global outside
+            outside = outside + 1
+            stroke(255, 0, 0)
+        point(x, y)
+    pie = float(4) * (float(inside) / float(outside + inside))
+    print pie
