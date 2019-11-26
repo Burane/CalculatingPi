@@ -1,7 +1,7 @@
 r = 200
 inside = 0
 outside = 0
-vitesse = 50000
+vitesse = 5000
 
 def setup() :
     size(r*2+1, r*2+1)
@@ -11,7 +11,7 @@ def setup() :
     ellipse(0, 0, r*2, r*2)
 
 def draw() :
-    strokeWeight(0.15)
+    strokeWeight(1)
     translate(width/2, height/2)
     pie = 0
     for _ in range (vitesse) :
