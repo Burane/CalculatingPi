@@ -1,7 +1,7 @@
 r = 200
 inside = 0
 outside = 0
-vitesse = 5000
+vitesse = 500000
 
 def setup() :
     size(r*2+1, r*2+1)
