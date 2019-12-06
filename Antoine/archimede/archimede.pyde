@@ -1,16 +1,20 @@
-gobal rayon, n,h,w
+global rayon, n, h, w
 
 def setup():
     size(800,800)
+    
+def draw():
     rayon = 300
     h = height/2
     w = width/2
-    
-def draw():
+    n = 60
+    pi = PI
     background(51)
-    triangle(h,w,)
-    
-    
+    for i in range(1,n+1):
+        fill(255, 204, 0)
+        triangle(h,w ,h+rayon*(-sin(2*pi/(n/2)*i)),h-rayon*(-cos(2*pi/(n/2)*i)) ,h+rayon*(sin(2*pi/(n/2)*i)),h-rayon*(cos(2*pi/(n/2)*i)))
+
+    noLoop()
     
 class Point:
     def __init__(self, x, y, h, w):
