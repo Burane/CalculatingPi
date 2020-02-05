@@ -1,7 +1,15 @@
 r = 200
 inside = 0
 outside = 0
+<<<<<<< Updated upstream
 vitesse = 500000
+=======
+<<<<<<< Updated upstream
+vitesse = 5000
+=======
+vitesse = 500000
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 def setup() :
     size(r*2+1, r*2+1)
